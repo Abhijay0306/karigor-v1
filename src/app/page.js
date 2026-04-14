@@ -179,9 +179,8 @@ export default function Home() {
           </div>
           <div>
             <p style={{ fontSize: "12px", color: "rgba(250,248,245,0.5)", letterSpacing: "0.1em", marginBottom: "8px" }}>Studio, Kolkata</p>
-            {/* Replace with your contact email */}
-            <p style={{ fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em" }}>studio@karigorinterior.com</p>
-            <p style={{ fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em", marginTop: "6px" }}>+91 97488 50377</p>
+            <a href="mailto:karigorinterior55@gmail.com" style={{ display: "block", fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em", textDecoration: "none" }}>karigorinterior55@gmail.com</a>
+            <a href="tel:+919748850377" style={{ display: "block", fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em", marginTop: "6px", textDecoration: "none" }}>+91 97488 50377</a>
           </div>
         </div>
         <div className="cta-right">

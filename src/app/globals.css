@@ -948,6 +948,9 @@
     background: var(--black);
     padding: 80px 60px 40px;
     color: var(--cream);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .footer-top {
@@ -1143,6 +1146,7 @@
 
     .form-row { grid-template-columns: 1fr; gap: 16px; }
 
+    footer { padding: 0; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; padding: 48px 24px; }
     .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; padding: 20px 24px; }
 
@@ -1192,6 +1196,7 @@
     .cta-right { padding: 36px 20px !important; }
     .cta-title { font-size: clamp(28px, 9vw, 42px); }
 
+    footer { padding: 0; }
     .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 48px 20px; }
     .footer-brand-desc { max-width: 100%; font-size: 14px; }
     .footer-bottom { padding: 20px; gap: 12px; }
