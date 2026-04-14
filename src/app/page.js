@@ -1,4 +1,4 @@
-import Image from "next/image";
+import GalleryLightbox from "@/components/GalleryLightbox";
 import ContactForm from "@/components/ContactForm";
 
 const servicesList = [
@@ -44,16 +44,6 @@ const servicesList = [
   },
 ];
 
-const galleryItems = [
-  { id: 1, src: "/gallery-1.jpeg", alt: "Karigor Interior project 1" },
-  { id: 2, src: "/gallery-2.jpeg", alt: "Karigor Interior project 2" },
-  { id: 3, src: "/gallery-3.jpeg", alt: "Karigor Interior project 3" },
-  { id: 4, src: "/gallery-4.jpg",  alt: "Karigor Interior project 4" },
-  { id: 5, src: "/gallery-5.jpg",  alt: "Karigor Interior project 5" },
-  { id: 6, src: "/gallery-6.jpg",  alt: "Karigor Interior project 6" },
-  { id: 7, src: "/gallery-7.jpeg", alt: "Karigor Interior project 7" },
-  { id: 8, src: "/gallery-8.jpeg", alt: "Karigor Interior project 8" },
-];
 
 export default function Home() {
   return (
@@ -142,19 +132,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="gallery-grid">
-          {galleryItems.map((item) => (
-            <div key={item.id} className="gallery-item reveal" style={{ transitionDelay: `${(item.id % 4) * 0.1}s` }}>
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(max-width: 600px) 50vw, (max-width: 1024px) 25vw, 25vw"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          ))}
-        </div>
+        <GalleryLightbox />
       </section>
 
       {/* ─── SERVICES ─── */}
@@ -203,7 +181,7 @@ export default function Home() {
             <p style={{ fontSize: "12px", color: "rgba(250,248,245,0.5)", letterSpacing: "0.1em", marginBottom: "8px" }}>Studio, Kolkata</p>
             {/* Replace with your contact email */}
             <p style={{ fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em" }}>studio@karigorinterior.com</p>
-            <p style={{ fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em", marginTop: "6px" }}>+91 22 4123 5678</p>
+            <p style={{ fontSize: "13px", color: "rgba(250,248,245,0.7)", letterSpacing: "0.05em", marginTop: "6px" }}>+91 97488 50377</p>
           </div>
         </div>
         <div className="cta-right">

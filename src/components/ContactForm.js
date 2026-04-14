@@ -2,11 +2,6 @@
 
 import { useState } from "react";
 
-// TODO: Replace with your email address before going live.
-// Then wire up a real email service (Resend, SendGrid, Nodemailer, etc.)
-// in the handleSubmit function below.
-const RECIPIENT_EMAIL = "YOUR_EMAIL@example.com";
-
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
 
@@ -21,15 +16,24 @@ export default function ContactForm() {
       phone: formData.get("phone"),
       service: formData.get("service"),
       description: formData.get("description"),
-      recipient: RECIPIENT_EMAIL,
     };
 
-    // TODO: Send `data` to your email service here.
-    console.log("New Enquiry:", data);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    await new Promise((r) => setTimeout(r, 800));
-    setStatus("success");
-    e.target.reset();
+      if (res.ok) {
+        setStatus("success");
+        e.target.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
@@ -58,6 +62,12 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      {status === "error" && (
+        <p style={{ fontSize: "13px", color: "#e07070", marginBottom: "16px", letterSpacing: "0.05em" }}>
+          Something went wrong. Please try again or email us directly.
+        </p>
+      )}
+
       <div className="form-group">
         <label className="form-label">Name *</label>
         <input className="form-input" name="name" type="text" placeholder="Your full name" required />
@@ -70,7 +80,7 @@ export default function ContactForm() {
         </div>
         <div className="form-group">
           <label className="form-label">Phone Number *</label>
-          <input className="form-input" name="phone" type="tel" placeholder="+1 234 567 890" required />
+          <input className="form-input" name="phone" type="tel" placeholder="+91 97488 50377" required />
         </div>
       </div>
 
