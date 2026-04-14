@@ -54,7 +54,7 @@ export default function Home() {
         <div className="hero-content">
           <p className="hero-eyebrow">Interior Design · Architecture · Project Management</p>
           <h1>Spaces crafted<br />for <em>extraordinary</em><br />living.</h1>
-          <p className="hero-desc">Karigor Interior was founded to redefine luxury design through a seamless integration of architecture, interiors, and project delivery within one cohesive studio.</p>
+          <p className="hero-desc">Karigor Interior was founded on the belief that exceptional design should be within reach — delivered through a seamless integration of architecture, interiors, and project management within one cohesive studio.</p>
           <div className="hero-actions">
             <a href="#services" className="btn-primary">Services</a>
             <a href="#contact" className="btn-ghost">Enquire</a>
@@ -91,10 +91,10 @@ export default function Home() {
             <h2 className="section-title">Redefining luxury through <em>vision</em> and craft</h2>
           </div>
           <p className="intro-body reveal reveal-delay-1">
-            Karigor Interior was founded on a profound appreciation for the fusion of creativity and luxury — enveloped within a service that is as personal as it is professional. Our design experience brings interior spaces to life with storied opulence and understated wonder.
+            Karigor Interior was founded on a profound appreciation for the fusion of creativity and thoughtful design — enveloped within a service that is as personal as it is professional. We believe that a beautifully crafted space is not a privilege reserved for the few, but a considered investment that every home and business deserves.
           </p>
           <p className="intro-body reveal reveal-delay-2" style={{ marginTop: "20px" }}>
-            Guided by refined expertise, our award-winning designers span the creative disciplines — from interior architecture and interior design to project management and bespoke craftsmanship — ensuring every project is brought to fruition with artistry, dedication, and decades of mastery.
+            Guided by refined expertise, our designers span the creative disciplines — from interior architecture and space planning to project management and bespoke craftsmanship — working closely within your vision and budget to bring every project to fruition with artistry, transparency, and decades of mastery.
           </p>
           <div className="intro-stats reveal reveal-delay-3">
             <div>
@@ -162,7 +162,7 @@ export default function Home() {
         <div className="philosophy-lines"></div>
         <div className="philosophy-content reveal">
           <blockquote className="philosophy-quote">
-            &quot;We will take everyone involved on a creative journey that <em>celebrates design</em>, promotes craftsmanship and inspires innovation.&quot;
+            &quot;Luxury is not about excess — it is about intention. We bring <em>exceptional design</em> within reach, crafting spaces that resonate with beauty, purpose, and enduring value.&quot;
           </blockquote>
           <p className="philosophy-attr">Karigor Interior — Studio Philosophy</p>
         </div>
