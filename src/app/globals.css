@@ -1218,4 +1218,23 @@
     .lightbox-arrow-next { right: 4px; }
     .lightbox-img-wrap { width: 100vw; height: 60vh; }
     .lightbox-close { top: 12px; right: 12px; font-size: 22px; }
+
+    /* ── Hide custom cursor, restore native pointer ── */
+    * { cursor: auto !important; }
+    a, button, [role="button"], select, [style*="cursor: pointer"], .gallery-item { cursor: pointer !important; }
+    #cursor, #cursor-ring { display: none !important; }
+
+    /* ── Bolder text for readability ── */
+    body { font-weight: 400; }
+    .hero h1 { font-weight: 400; }
+    .section-title { font-weight: 400; }
+    .hero-desc { font-weight: 400; }
+    .intro-body { font-weight: 400; }
+    .service-desc { font-weight: 400; }
+    .service-title { font-weight: 500; }
+    .philosophy-quote { font-weight: 400; }
+    .cta-title { font-weight: 400; }
+    .footer-brand-desc { font-weight: 400; }
+    .footer-links a { font-weight: 400; }
+    .form-input { font-weight: 400; }
   }
