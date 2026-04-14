@@ -97,7 +97,7 @@ export default function Home() {
       <section className="intro" id="studio">
         <div className="intro-left">
           <div className="reveal">
-            <p className="section-label">Our Ethos</p>
+            <p className="section-label">What We Do</p>
             <h2 className="section-title">Redefining luxury through <em>vision</em> and craft</h2>
           </div>
           <p className="intro-body reveal reveal-delay-1">

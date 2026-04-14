@@ -41,7 +41,7 @@ export default function Header() {
       <nav className={menuOpen ? "open" : ""}>
         <a href="#gallery" onClick={(e) => { e.preventDefault(); scrollTo("gallery"); }}>Gallery</a>
         <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo("services"); }}>Services</a>
-        <a href="#studio" onClick={(e) => { e.preventDefault(); scrollTo("studio"); }}>Studio</a>
+        <a href="#studio" onClick={(e) => { e.preventDefault(); scrollTo("studio"); }}>About Us</a>
         <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo("contact"); }} className="nav-cta">Enquire</a>
       </nav>
     </header>
