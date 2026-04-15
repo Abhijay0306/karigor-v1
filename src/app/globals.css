@@ -126,7 +126,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     box-sizing: border-box;
     padding: 0; /* cancel section's generic padding — hero-content owns its own spacing */
   }
@@ -187,7 +187,7 @@
 
   .hero-content {
     position: relative; z-index: 2;
-    padding: 100px 60px 80px; /* top: header clearance on short screens; sides: match section padding */
+    padding: 80px 60px; /* symmetric vertical; sides match section padding */
     max-width: 820px;
     width: 100%;
     box-sizing: border-box;
@@ -1140,7 +1140,7 @@
 
     section { padding: 60px 24px !important; }
     .hero { padding: 0 !important; }
-    .hero-content { padding: 80px 24px 60px; } /* sides match tablet section padding */
+    .hero-content { padding: 60px 24px; } /* sides match tablet section padding */
     .hero h1 { font-size: clamp(42px, 11vw, 60px); margin-bottom: 24px; }
 
     .intro { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px !important; }
@@ -1179,7 +1179,7 @@
     header.scrolled { padding: 12px 20px; }
 
     section { padding: 48px 20px !important; }
-    .hero { padding: 0 !important; min-height: 100svh; }
+    .hero { padding: 0 !important; min-height: 100svh; justify-content: flex-end; }
     .hero::after {
       content: '';
       position: absolute;
