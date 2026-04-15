@@ -799,10 +799,18 @@
   }
 
   .philosophy-bg {
-    position: absolute; inset: 0;
+    position: absolute; inset: -20%;
     background:
       radial-gradient(ellipse at 70% 50%, rgba(114,56,61,0.2) 0%, transparent 60%),
       radial-gradient(ellipse at 20% 80%, rgba(172,156,141,0.08) 0%, transparent 50%);
+    animation: philosophyDrift 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes philosophyDrift {
+    0%   { background-position: 70% 50%, 20% 80%; transform: scale(1)   translate(0px,    0px);   }
+    33%  {                                         transform: scale(1.04) translate(18px,  -12px);  }
+    66%  {                                         transform: scale(1.02) translate(-10px,  16px);  }
+    100% {                                         transform: scale(1.05) translate(14px,   8px);   }
   }
 
   .philosophy-lines {
