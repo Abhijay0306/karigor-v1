@@ -988,6 +988,7 @@
     transition: color 0.3s;
   }
   .social-link:hover { color: var(--sand); }
+  .social-link-icon { display: flex; align-items: center; color: var(--taupe); transition: color 0.3s; }
 
   .footer-col-title {
     font-size: 11px;
