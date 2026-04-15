@@ -825,7 +825,7 @@
     line-height: 1.5;
     margin-bottom: 40px;
   }
-  .philosophy-quote em { color: var(--taupe); font-style: normal; }
+  .philosophy-quote em { color: var(--taupe); font-style: normal; margin-right: 0.15em; }
 
   .philosophy-attr {
     font-size: 11px;
@@ -932,7 +932,7 @@
     width: 100%;
   }
   .form-input:focus { border-color: var(--crimson); }
-  .form-input::placeholder { color: var(--silver); }
+  .form-input::placeholder { color: rgba(50,45,41,0.45); }
 
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 

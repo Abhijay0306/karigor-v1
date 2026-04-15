@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("Something went wrong. Please try again or email us directly.");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMsg("");
 
     const formData = new FormData(e.target);
     const data = {
@@ -17,6 +19,23 @@ export default function ContactForm() {
       service: formData.get("service"),
       description: formData.get("description"),
     };
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      setStatus("error");
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate phone — must be 7–15 digits, optional leading +
+    const phoneDigits = data.phone.replace(/[\s\-().]/g, "");
+    const phoneRegex = /^\+?[0-9]{7,15}$/;
+    if (!phoneRegex.test(phoneDigits)) {
+      setStatus("error");
+      setErrorMsg("Please enter a valid phone number.");
+      return;
+    }
 
     try {
       const res = await fetch("/api/enquiry", {
@@ -29,9 +48,11 @@ export default function ContactForm() {
         setStatus("success");
         e.target.reset();
       } else {
+        setErrorMsg("Something went wrong. Please try again or email us directly.");
         setStatus("error");
       }
     } catch {
+      setErrorMsg("Something went wrong. Please try again or email us directly.");
       setStatus("error");
     }
   };
@@ -64,7 +85,7 @@ export default function ContactForm() {
     <form className="contact-form" onSubmit={handleSubmit}>
       {status === "error" && (
         <p style={{ fontSize: "13px", color: "#e07070", marginBottom: "16px", letterSpacing: "0.05em" }}>
-          Something went wrong. Please try again or email us directly.
+          {errorMsg}
         </p>
       )}
 
@@ -80,7 +101,7 @@ export default function ContactForm() {
         </div>
         <div className="form-group">
           <label className="form-label">Phone Number *</label>
-          <input className="form-input" name="phone" type="tel" placeholder="+91 97488 50377" required />
+          <input className="form-input" name="phone" type="tel" placeholder="+91 12345 67890" required />
         </div>
       </div>
 
