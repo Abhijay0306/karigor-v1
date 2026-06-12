@@ -15,7 +15,7 @@ export default function ScrollObserver() {
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.01 });
 
     reveals.forEach(el => io.observe(el));
 

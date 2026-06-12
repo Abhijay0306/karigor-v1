@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Project {
+  id             String   @id @default(uuid())
+  slug           String   @unique
+  title          String
+  description    String   @db.Text
+  category       String   // e.g. "Residential", "Modular Kitchen", "Office Interior"
+  style          String   // e.g. "Modern Luxury", "Minimalist"
+  budget         String   // e.g. "Premium", "Affordable Luxury"
+  materials      String   // Materials description
+  heroImage      String   // Cover image URL
+  galleryImages  String[] // Array of additional gallery image URLs
+  beforeImage    String?  // Optional before image
+  afterImage     String?  // Optional after image
+  published      Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  excerpt     String   @db.Text
+  content     String   @db.Text
+  coverImage  String
+  category    String
+  tags        String[]
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Enquiry {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  service     String?
+  description String?  @db.Text
+  status      String   @default("new") // e.g. "new", "contacted", "archived"
+  createdAt   DateTime @default(now())
+}

@@ -29,3 +29,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
+
+# root-level media/scratch files
+/*.mp4
+/*.webm
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+

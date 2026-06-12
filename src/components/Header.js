@@ -2,18 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close menu when path changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -34,28 +42,22 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  const scrollTo = (id) => {
-    setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <header id="header" className={`${isScrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`}>
-      <a
-        href="#"
+    <header id="header" className={`${isScrolled || pathname !== "/" ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`}>
+      <Link
+        href="/"
         className="logo"
         style={{ display: "flex", alignItems: "center" }}
-        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
       >
         <Image
-          src={isScrolled || menuOpen ? "/logo-black.svg" : "/logo-white.svg"}
+          src={isScrolled || pathname !== "/" || menuOpen ? "/logo-black.svg" : "/logo-white.svg"}
           alt="Karigor Interior"
           width={140}
           height={40}
           priority
           className="nav-logo"
         />
-      </a>
+      </Link>
 
       <button
         className="hamburger"
@@ -70,11 +72,40 @@ export default function Header() {
       </button>
 
       <nav ref={navRef} className={menuOpen ? "open" : ""}>
-        <a href="#gallery"  onClick={(e) => { e.preventDefault(); scrollTo("gallery"); }}>Gallery</a>
-        <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo("services"); }}>Services</a>
-        <a href="#studio"   onClick={(e) => { e.preventDefault(); scrollTo("studio"); }}>About Us</a>
-        <a href="#contact"  onClick={(e) => { e.preventDefault(); scrollTo("contact"); }} className="nav-cta">Enquire</a>
+        <Link href="/projects" className={pathname === "/projects" ? "active" : ""}>Portfolio</Link>
+        <Link href="/gallery" className={pathname === "/gallery" ? "active" : ""}>Gallery</Link>
+        <Link href="/services" className={pathname.startsWith("/services") ? "active" : ""}>Services</Link>
+        <Link href="/about" className={pathname === "/about" ? "active" : ""}>About Us</Link>
+        <Link href="/blog" className={pathname.startsWith("/blog") ? "active" : ""}>Blog</Link>
+        <Link href="/contact" className="nav-cta">Enquire</Link>
       </nav>
+
+      {/* Maroon Announcement Banner */}
+      <div 
+        style={{ 
+          position: "absolute", 
+          top: "100%", 
+          left: 0, 
+          width: "100%", 
+          background: "var(--crimson)", 
+          color: "var(--white)", 
+          textTransform: "uppercase", 
+          fontSize: "10px", 
+          letterSpacing: "0.22em", 
+          padding: "8px 20px", 
+          textAlign: "center", 
+          fontWeight: "400",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+          pointerEvents: "none",
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          opacity: isScrolled || pathname !== "/" ? 1 : 0,
+          transform: isScrolled || pathname !== "/" ? "translateY(0)" : "translateY(-100%)",
+          transition: "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          zIndex: -1
+        }}
+      >
+        Easy finance or installment options also available
+      </div>
     </header>
   );
 }

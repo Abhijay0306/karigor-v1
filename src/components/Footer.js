@@ -1,9 +1,9 @@
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Footer() {
   return (
-    <footer>
-      <div className="footer-top">
+    <footer style={{ position: "relative", overflow: "hidden" }}>
+      <div className="footer-top" style={{ position: "relative", zIndex: 1 }}>
         <div className="footer-brand">
           <div className="footer-logo" style={{ marginBottom: "24px" }}>
             <Image
@@ -30,27 +30,28 @@ export default function Footer() {
         <div>
           <p className="footer-col-title">Studio</p>
           <ul className="footer-links">
-            <li><a href="#studio">About Us</a></li>
-            <li><a href="#studio">Our Philosophy</a></li>
+            <li><Link href="/about">About Us</Link></li>
+            <li><Link href="/about#philosophy">Our Philosophy</Link></li>
           </ul>
         </div>
         <div>
           <p className="footer-col-title">Work</p>
           <ul className="footer-links">
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><Link href="/gallery">Gallery</Link></li>
+            <li><Link href="/projects">Portfolio</Link></li>
+            <li><Link href="/services">Services</Link></li>
           </ul>
         </div>
         <div>
           <p className="footer-col-title">Contact</p>
           <ul className="footer-links">
-            <li><a href="#contact">Make an Enquiry</a></li>
-            <li><a href="#contact">Kolkata Studio</a></li>
+            <li><Link href="/contact">Make an Enquiry</Link></li>
+            <li><Link href="/contact#map">Kolkata Studio</Link></li>
           </ul>
         </div>
       </div>
-      <div className="footer-bottom">
-        <p className="footer-copy">© 2025 Karigor Interior. All rights reserved.</p>
+      <div className="footer-bottom" style={{ position: "relative", zIndex: 1 }}>
+        <p className="footer-copy">© 2026 Karigor Interior. All rights reserved.</p>
         <div className="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>

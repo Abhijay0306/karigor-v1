@@ -1,9 +1,10 @@
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
-import Cursor from "@/components/Cursor";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
+import PageTransition from "@/components/PageTransition";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600"],
@@ -27,10 +28,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
-        <Cursor />
         <ScrollObserver />
+        <PageTransition />
+        <SmoothScroll />
         <Header />
-        {children}
+        <div className="page-content">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
