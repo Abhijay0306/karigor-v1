@@ -145,7 +145,7 @@ export default async function Home() {
         <div className="hero-content">
           <p className="hero-eyebrow">INTERIOR DESIGN · ARCHITECTURE · PROJECT MANAGEMENT</p>
           <h1>Spaces crafted for<br /><em>extraordinary</em> living.</h1>
-          <p className="hero-desc">Karigor Interior was founded on the belief that exceptional design should be within reach—delivered through a seamless integration of architecture, interiors, and project management within one cohesive studio.</p>
+          <p className="hero-desc">Kolkata's leading luxury interior design studio. Karigor Interior was founded on the belief that exceptional design should be within reach—delivered through a seamless integration of architecture, interiors, and project management within one cohesive studio.</p>
           <div className="hero-actions">
             <Link href="/services" className="btn-primary">SERVICES</Link>
             <Link href="/contact" className="btn-outline">ENQUIRE</Link>
@@ -179,6 +179,9 @@ export default async function Home() {
           </p>
           <p className="intro-body reveal" style={{ marginTop: "20px" }}>
             Guided by refined expertise, our designers span the creative disciplines — from interior architecture and space planning to project management and bespoke craftsmanship — working closely within your vision and budget to bring every project to fruition with artistry, transparency, and decades of mastery.
+          </p>
+          <p className="intro-body reveal" style={{ marginTop: "20px" }}>
+            <strong>Areas We Serve:</strong> As a trusted local partner, we proudly design luxury residences and commercial spaces across South Kolkata, Salt Lake, New Town, Alipore, and surrounding neighbourhoods.
           </p>
           
           <div className="intro-stats reveal">

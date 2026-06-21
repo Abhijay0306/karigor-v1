@@ -20,14 +20,42 @@ const jost = Jost({
 });
 
 export const metadata = {
-  title: "Karigor Interior",
-  description: "A global luxury interior design studio. Spaces crafted for extraordinary living.",
+  title: "Interior Designer in Kolkata | Luxury Home & Office Design | Karigor Interior",
+  description: "Award-winning interior design studio in Kolkata — luxury residences, modular kitchens, and turnkey renovations delivered since 2014. Book a free consultation.",
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "InteriorDesigner",
+    "name": "Karigor Interior",
+    "url": "https://karigorinterior.com/",
+    "telephone": "+91 97488 50377",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kolkata",
+      "addressRegion": "West Bengal",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 22.5726,
+      "longitude": 88.3639
+    },
+    "openingHours": "Mo,Tu,We,Th,Fr 10:00-19:00",
+    "priceRange": "₹₹₹",
+    "sameAs": [
+      "https://www.instagram.com/karigorinterior/"
+    ]
+  };
+
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ScrollTriggerManager />
         <PageTransition />
         <SmoothScroll />

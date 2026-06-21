@@ -23,8 +23,6 @@ export default function Footer() {
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
               </svg>
             </a>
-            <a href="#" className="social-link">LinkedIn</a>
-            <a href="#" className="social-link">Pinterest</a>
           </div>
         </div>
         <div>
